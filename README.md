@@ -1,6 +1,6 @@
 ## HDL3C-code works basically for metagenome data analysis and further correlation analysis between phenotypes and taxonomic features of interest
 
-  **generate_phenotype_correlation.R** is a shell pipeline for processing raw sequencing data and generating a whole abundance file in .mpa format.
+  **metagenome_taxonomy.sh** is a shell pipeline for processing raw sequencing data and generating a whole abundance file in *.mpa* format.
   
   **generate_phenotype_correlation.R** is a R script using microeco to calculate metagenome related statistical analysis.
 
