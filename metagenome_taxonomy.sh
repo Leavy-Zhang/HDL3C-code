@@ -15,8 +15,7 @@ samtools view -S -b aligned_reads.sam > aligned_reads.bam
 
 samtools fastq -@ 10 -f 12 -F 256 -1 sample_reads_R1.fastq.gz -2 sample_reads_R2.fastq.gz aligned_reads.bam &
 
-# remove temporary files
-rm -rf aligned_reads.sam aligned_reads.bam
+
 
 # calculate the raw taxonomy profile for each sample
 mkdir KRAKEN2/
@@ -30,4 +29,7 @@ bracken -d /path/to/ref_database/KRAKEN2_DB/ -i KRAKEN2/sample.report -o KRAKEN2
 kreport2mpa.py --display-header -r KRAKEN2/sample.kreport -o KRAKEN2/sample.raw_count.mpa --read_count
 
 # merge all sample profiles
-combine_mpa.py -i KRAKEN2/*raw_count.mpa -o bracken/merged_kraken2.mpa
+combine_mpa.py -i KRAKEN2/*raw_count.mpa -o merged_kraken2.mpa
+
+# remove temporary files
+rm -rf *bam KRAKEN2/
